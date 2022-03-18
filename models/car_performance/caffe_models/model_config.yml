@@ -1,0 +1,16 @@
+project-name: lpr
+models:
+  lpr:
+    platform: caffe
+    prototxt_file_path: lpr_160_40.prototxt
+    caffemodel_file_path: lpr_160_40.caffemodel
+    quantize: true
+    source: text
+    dataset: dataset.txt
+    configs:
+      target_platform: 'rk1808'
+      quantized_dtype: asymmetric_quantized-u8
+      batch_size: 1
+      mean_values: [[127.5, 127.5, 127.5]]
+      std_values: [[255.0, 255.0, 255.0]]
+      reorder_channel: 2 1 0
